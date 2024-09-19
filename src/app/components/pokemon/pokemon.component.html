@@ -1,0 +1,27 @@
+
+
+<app-poke-details *ngIf="pokemondetails" [pokemonDetails]="pokemondetails" (close)="closeModal()"></app-poke-details>
+
+<div class="flex justify-center my-6">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3" *ngIf="pokemonList.length > 0; else loading" >
+    <div
+      class="bg-slate-600 hover:bg-slate-700 transition duration-300 text-white  rounded-lg p-4 m-2 text-center w-48"
+      *ngFor="let pokemon of pokemonList"
+      (click)="getDetails(pokemon)"
+    >
+      <h2 class=" font-semibold">{{ pokemon.name | titlecase }}</h2>
+      <img class="max-w-24 h-24 m-auto" [src]="pokemon.img" alt="{{ pokemon.name }}">
+      <p>{{ pokemon.description }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p class=" font-bold mt-8 text-white">cargando...</p>
+</ng-template>
+
+<div *ngIf="errorMessage">
+  <p class=" font-bold mt-8 text-white">{{ errorMessage }}</p>
+</div>
+
+

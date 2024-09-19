@@ -1,0 +1,34 @@
+
+  <div class="fixed inset-0 flex items-center justify-center z-50 text-white">
+    <div class=" modal-overlay fixed inset-0 bg-black opacity-50"></div>
+    <div class=" modal-content bg-gray-800 rounded-lg shadow-lg p-8 z-50">
+      <span (click)="closeModal()" class="close text-white float-right cursor-pointer">&times;</span>
+      <h2 class="text-xl font-bold mb-4 mt-2">{{ pokemonDetails.name  }}</h2>
+
+
+      <div class="flex flex-row gap-6">
+        <div class="p-5 bg-gray-700 rounded-lg min-w-7  flex justify-center">
+          <img class="w-full h-auto mb-4" [src]="pokemonDetails.img" alt="{{ pokemonDetails.name }}">
+        </div>
+        <div class="p-5 bg-gray-700 rounded-lg">
+          <div class="mb-2">
+            <strong>Tipo/s:</strong>
+          <span>
+            {{ pokemonDetails.types.length > 0 ? pokemonDetails.types.join(', ') : 'No disponible' }}
+          </span>
+          </div>
+          <div class="mb-2">
+            <strong>Altura: </strong> <span> {{ pokemonDetails.height }} m</span>
+          </div>
+          <div class="mb-2">
+            <strong>Peso: </strong> <span> {{ pokemonDetails.weight }} kg</span>
+          </div>
+          <div class="mb-2">
+            <strong>Descripción: </strong> <span>{{ pokemonDetails.description }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
